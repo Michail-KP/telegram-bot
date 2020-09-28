@@ -1,0 +1,30 @@
+<configuration scan="true">
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- We print to console INFO messages only of the telegrambot package -->
+    <logger name="ru.dexsys.telegrambot" level="INFO,ERROR">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+    <!-- And here we collect other level's messages -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/srv/logs/application.log</file>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

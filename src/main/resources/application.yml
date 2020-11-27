@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/telegrambot
+    username: ${BOT_DATABASE_USERNAME}
+    password: ${BOT_DATABASE_PASSWORD}
+  profiles:
+    active: development
+
+bot:
+  username: "wow_birthday_bot"
+  token: "1282991546:AAGqntapHzzM30fFGXBS_IhR0-CB9E6WJmk"

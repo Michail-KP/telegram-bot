@@ -1,0 +1,3 @@
+clients:
+  mock-server:
+    url: "https://serene-coast-56441.herokuapp.com/api"
